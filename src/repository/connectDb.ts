@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 
-
+console.log("hola")
 export const mongoDB = async () => {
     try {
        
