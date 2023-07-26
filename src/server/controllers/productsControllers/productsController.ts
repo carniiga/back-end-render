@@ -7,7 +7,7 @@ import { findAll } from "../../../logic/product-logic/findAllProd";
 
 export const getAllProductCtrl = async(req : Request , res : Response ,) => {
     const getAll =  await findAll()
-    res.send(getAll)
+    res.send(getAll).json()
 };
 
 export const createProductCtrl = async(req : Request , res : Response) => {
