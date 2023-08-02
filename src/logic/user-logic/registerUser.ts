@@ -1,10 +1,12 @@
 import User  from "../../model/userModel/userSchema"
 import { passwordcrypted } from "./userHash"
+
+
 export const registerUser = async (userName : String , password : String , email : String) => {
     const passwordHashed= await passwordcrypted(`${password}`)
     const userFind = await  User.findOne({email})
     if(userFind){
-        return "usuario ya creado"
+        return "este usuario ya fue creado"
         }
    if(email == "fernandezagustin98@hotmail.com"){
     const registerAdmin = new User({

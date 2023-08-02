@@ -19,7 +19,7 @@ const registerUser = (userName, password, email) => __awaiter(void 0, void 0, vo
     const passwordHashed = yield (0, userHash_1.passwordcrypted)(`${password}`);
     const userFind = yield userSchema_1.default.findOne({ email });
     if (userFind) {
-        return "usuario ya creado";
+        return "este usuario ya fue creado";
     }
     if (email == "fernandezagustin98@hotmail.com") {
         const registerAdmin = new userSchema_1.default({

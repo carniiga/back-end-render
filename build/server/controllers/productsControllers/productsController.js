@@ -17,7 +17,7 @@ const deleteProd_1 = require("../../../logic/product-logic/deleteProd");
 const findAllProd_1 = require("../../../logic/product-logic/findAllProd");
 const getAllProductCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const getAll = yield (0, findAllProd_1.findAll)();
-    res.send(getAll);
+    res.send(getAll).json();
 });
 exports.getAllProductCtrl = getAllProductCtrl;
 const createProductCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

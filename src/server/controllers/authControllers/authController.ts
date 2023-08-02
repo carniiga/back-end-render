@@ -5,7 +5,12 @@ import { isLogin } from "../../../logic/user-logic/loginUser";
 export const registerCtrl =  async(req : Request , res : Response) => {
        const {userName , email , password}= req.body
        const userRegister = await registerUser(userName, password , email )
-       res.send(userRegister).json()
+       if(userRegister == "este usuario ya fue creado"){
+        return res.status(400).send(userRegister).json()
+       }
+       res.status(200).send("usuario creado exitosamente")
+
+       
 };
 export const loginCtrl = async (req : Request , res : Response) => {
         const {email , password} = req.body;

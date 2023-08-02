@@ -16,7 +16,7 @@ exports.destructureUserWithToken = exports.generateToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const generateToken = (user) => __awaiter(void 0, void 0, void 0, function* () {
     const { userName, password, email } = user;
-    const access_Token = jsonwebtoken_1.default.sign({ userName, password, email }, "secret-key-123ad5A", { expiresIn: "1h" });
+    const access_Token = jsonwebtoken_1.default.sign({ userName, password, email }, `${"MYSECRET_KEY1357Z$ZD"}`, { expiresIn: "1h" });
     return access_Token;
 });
 exports.generateToken = generateToken;

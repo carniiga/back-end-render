@@ -15,7 +15,10 @@ const loginUser_1 = require("../../../logic/user-logic/loginUser");
 const registerCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userName, email, password } = req.body;
     const userRegister = yield (0, registerUser_1.registerUser)(userName, password, email);
-    res.send(userRegister).json();
+    if (userRegister == "este usuario ya fue creado") {
+        return res.status(400).send(userRegister).json();
+    }
+    res.status(200).send("usuario creado exitosamente");
 });
 exports.registerCtrl = registerCtrl;
 const loginCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
