@@ -10,7 +10,12 @@ export const isLogin = async(email: String , password:String) => {
     const verifyPass = await bcrypt.compare(`${password}`, `${findUser?.password}`)
     if(verifyPass){
         const token = await generateToken(findUser)
-        return token
+        const infoUser = {
+            token : token,
+            userName  :findUser?.userName
+
+        }
+        return infoUser
     }
 }
 

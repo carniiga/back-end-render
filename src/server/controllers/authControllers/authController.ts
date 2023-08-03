@@ -16,7 +16,7 @@ export const loginCtrl = async (req : Request , res : Response) => {
         const {email , password} = req.body;
         const verifiy = await isLogin(email,password)
         const messageResp = {
-                access_Token : verifiy
+                infouser : verifiy
         }
-        res.status(200).json({message : messageResp.access_Token})
+        res.status(200).json({message : messageResp.infouser})
 };
