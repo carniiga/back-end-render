@@ -24,9 +24,14 @@ exports.registerCtrl = registerCtrl;
 const loginCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     const verifiy = yield (0, loginUser_1.isLogin)(email, password);
-    const messageResp = {
-        infouser: verifiy
-    };
-    res.status(200).json({ message: messageResp.infouser });
+    if (verifiy) {
+        const messageResp = {
+            infouser: verifiy
+        };
+        return res.status(200).json({ message: messageResp.infouser });
+    }
+    else {
+        return res.status(400).json({ message: "contraseña y/o usuario incorrecto." });
+    }
 });
 exports.loginCtrl = loginCtrl;
