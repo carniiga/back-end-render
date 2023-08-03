@@ -15,8 +15,13 @@ export const registerCtrl =  async(req : Request , res : Response) => {
 export const loginCtrl = async (req : Request , res : Response) => {
         const {email , password} = req.body;
         const verifiy = await isLogin(email,password)
+        if(verifiy){
         const messageResp = {
-                infouser : verifiy
+         infouser : verifiy
+         }
+        return res.status(200).json({message : messageResp.infouser})
         }
-        res.status(200).json({message : messageResp.infouser})
+        else {
+         return res.status(400).json({message : "contraseña y/o usuario incorrecto."})
+        }
 };
