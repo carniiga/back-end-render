@@ -22,7 +22,12 @@ const isLogin = (email, password) => __awaiter(void 0, void 0, void 0, function*
     const verifyPass = yield bcryptjs_1.default.compare(`${password}`, `${findUser === null || findUser === void 0 ? void 0 : findUser.password}`);
     if (verifyPass) {
         const token = yield (0, userToken_1.generateToken)(findUser);
-        return token;
+        const infoUser = {
+            token: token,
+            userName: findUser === null || findUser === void 0 ? void 0 : findUser.userName,
+            rol: findUser === null || findUser === void 0 ? void 0 : findUser.rol
+        };
+        return infoUser;
     }
 });
 exports.isLogin = isLogin;

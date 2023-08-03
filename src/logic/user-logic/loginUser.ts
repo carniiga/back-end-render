@@ -12,7 +12,8 @@ export const isLogin = async(email: String , password:String) => {
         const token = await generateToken(findUser)
         const infoUser = {
             token : token,
-            userName  :findUser?.userName
+            userName  :findUser?.userName,
+            rol : findUser?.rol
 
         }
         return infoUser

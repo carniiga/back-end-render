@@ -25,8 +25,8 @@ const loginCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     const verifiy = yield (0, loginUser_1.isLogin)(email, password);
     const messageResp = {
-        access_Token: verifiy
+        infouser: verifiy
     };
-    res.send(messageResp).json();
+    res.status(200).json({ message: messageResp.infouser });
 });
 exports.loginCtrl = loginCtrl;
