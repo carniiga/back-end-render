@@ -18,5 +18,5 @@ export const loginCtrl = async (req : Request , res : Response) => {
         const messageResp = {
                 access_Token : verifiy
         }
-        res.send(messageResp).json()
+        res.status(200).json({message : messageResp.access_Token})
 };
