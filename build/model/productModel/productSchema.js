@@ -4,8 +4,8 @@ const mongoose_1 = require("mongoose");
 const productSchema = new mongoose_1.Schema({
     provincia: String,
     description: String,
-    hotel : String ,
-    ciudad: String,
+    category: String,
+    lugar: String,
     price: Number,
     imgUrl: [],
     totalQuantity: Number,
