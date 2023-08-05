@@ -1,10 +1,11 @@
 import { Schema , model } from "mongoose";
 
 export type product = {
-        name: string;
+        provincia: string;
         description: string;
-        marca: string;
+        lugar: string;
         price:Number;
+        hotel : string,
         imgUrl:string;
         category:string;
         totalQuantity : Number;
@@ -12,10 +13,11 @@ export type product = {
      
 }
 const productSchema =  new Schema<product>({
-    name : String,
+    provincia  : String,
     description : String,
     category : String ,
-    marca : String,
+    lugar : String,
+    hotel : String,
     price : Number,
     imgUrl : [],
     totalQuantity : Number,
