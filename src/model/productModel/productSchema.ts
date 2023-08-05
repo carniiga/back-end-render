@@ -7,7 +7,6 @@ export type product = {
         price:Number;
         hotel : string,
         imgUrl:string;
-        category:string;
         totalQuantity : Number;
         quantity : Number;
      
@@ -15,7 +14,6 @@ export type product = {
 const productSchema =  new Schema<product>({
     provincia  : String,
     description : String,
-    category : String ,
     lugar : String,
     hotel : String,
     price : Number,
