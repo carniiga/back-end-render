@@ -6,7 +6,7 @@ export type product = {
         lugar: string;
         price:Number;
         hotel : string,
-        imgUrl:string;
+        imgUrl: File;
         totalQuantity : Number;
         quantity : Number;
      
