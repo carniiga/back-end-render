@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const productSchema = new mongoose_1.Schema({
-    name: String,
+    provincia: String,
     description: String,
-    category: String,
-    marca: String,
+    hotel : String ,
+    ciudad: String,
     price: Number,
     imgUrl: [],
     totalQuantity: Number,
