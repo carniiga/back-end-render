@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createProdDb = void 0;
 const productSchema_1 = __importDefault(require("../../model/productModel/productSchema"));
 const createProdDb = (product) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, price, description, imgUrl, category, marca, totalQuantity } = product;
-    const createProd = yield productSchema_1.default.create({ name, price, description, imgUrl, category, marca, totalQuantity });
+    const { provincia, price, description, imgUrl, category, lugar, totalQuantity, hotel } = product;
+    const createProd = yield productSchema_1.default.create({ provincia, price, description, imgUrl, category, lugar, hotel, totalQuantity });
     return createProd;
 });
 exports.createProdDb = createProdDb;
