@@ -1,9 +1,8 @@
 import Product from "../../model/productModel/productSchema";
 
-export const deleteProd = async(id : String) => {
-    const deleteProdDb = await Product.findByIdAndDelete(id)
-    if(deleteProdDb){
-        return "el producto ha sido eliminado correctamente";
-    }
-    return;
+export const deleteProd = async(id : any) => {
+  const deleteProd = await Product.findOneAndDelete({id})
+  if(deleteProd){
+    return "el  producto ha sido elimiando correctamente"
+  }
 }

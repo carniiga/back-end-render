@@ -7,7 +7,7 @@ const productSchema = new mongoose_1.Schema({
     lugar: String,
     hotel: String,
     price: Number,
-    imgUrl: [],
+    imgUrl: Array,
     totalQuantity: Number,
     quantity: {
         type: Number,
