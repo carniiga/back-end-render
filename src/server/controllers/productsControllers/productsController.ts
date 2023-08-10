@@ -31,6 +31,9 @@ export const updateProductCtrl = async(req: Request , res :Response) => {
     const {id}= req.params;
     const productInput = req.body;
     const updateProd = await updateProduct(productInput, `${id}`)
+    if(updateProd){
+        res.status(200).send(updateProd).json()
+    }
     
 };
 

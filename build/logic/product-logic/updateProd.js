@@ -15,7 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateProduct = void 0;
 const productSchema_1 = __importDefault(require("../../model/productModel/productSchema"));
 const updateProduct = (product, id) => __awaiter(void 0, void 0, void 0, function* () {
-    const update = yield productSchema_1.default.findByIdAndUpdate(id, product, {
+    const id2 = id.trim("");
+    const update = yield productSchema_1.default.findByIdAndUpdate(id2, product, {
         new: true
     });
     yield (update === null || update === void 0 ? void 0 : update.save());
