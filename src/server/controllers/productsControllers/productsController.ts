@@ -30,8 +30,8 @@ export const findProductByNameCtrl = async(req: Request , res: Response)=> {
 export const updateProductCtrl = async(req: Request , res :Response) => {
     const {id}= req.params;
     const productInput = req.body;
-    const updateProd = await updateProduct(productInput, id)
-    res.status(200).send(updateProd).json()
+    const updateProd = await updateProduct(productInput, `${id}`)
+    
 };
 
 export const deleteProdCtrl = async(req : Request , res:Response) => {

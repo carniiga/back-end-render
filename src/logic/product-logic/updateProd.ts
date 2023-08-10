@@ -1,7 +1,8 @@
-import Product ,{product} from "../../model/productModel/productSchema"
+import Product  from "../../model/productModel/productSchema"
 
-export const updateProduct = async(product : product, id : String): Promise<any> => {
-    const update = await Product.findByIdAndUpdate(id , product,{
+export const updateProduct = async(product : any ,id : any): Promise<any> => {
+    const id2 = id.trim("")
+    const update = await Product.findByIdAndUpdate(id2 , product,{
         new: true
     })
 
