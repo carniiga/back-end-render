@@ -42,6 +42,9 @@ const updateProductCtrl = (req, res) => __awaiter(void 0, void 0, void 0, functi
     const { id } = req.params;
     const productInput = req.body;
     const updateProd = yield (0, updateProd_1.updateProduct)(productInput, `${id}`);
+    if (updateProd) {
+        res.status(200).send(updateProd).json();
+    }
 });
 exports.updateProductCtrl = updateProductCtrl;
 const deleteProdCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
