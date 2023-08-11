@@ -10,7 +10,7 @@ exports.port = 3000;
 exports.app = (0, express_1.default)();
 exports.app.use((0, cors_1.default)({
     origin: "http://http://localhost:3000",
-    methods: ["POST", "DELETE", "PUT", "GET"]
+    credentials: true
 }));
 exports.app.use(express_1.default.json());
 exports.app.use(express_1.default.json({ limit: '50mb' }));

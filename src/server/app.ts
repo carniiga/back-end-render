@@ -5,7 +5,6 @@ export const port = 3000;
 export const app = express()
 app.use(cors({
     origin : "http://http://localhost:3000",
-   credentials : true
 }))
     
 app.use(express.json())
