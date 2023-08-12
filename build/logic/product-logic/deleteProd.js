@@ -15,7 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteProd = void 0;
 const productSchema_1 = __importDefault(require("../../model/productModel/productSchema"));
 const deleteProd = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const deleteProd = yield productSchema_1.default.findOneAndDelete({ id });
+    const id2 = id.trim("");
+    const deleteProd = yield productSchema_1.default.findByIdAndDelete(id2);
     if (deleteProd) {
         return "el  producto ha sido elimiando correctamente";
     }
