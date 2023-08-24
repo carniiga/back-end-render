@@ -29,3 +29,4 @@ const authCtrl = __importStar(require("../../controllers/authControllers/authCon
 exports.authRouter = (0, express_1.Router)();
 exports.authRouter.post("/register", authCtrl.registerCtrl);
 exports.authRouter.post("/login", authCtrl.loginCtrl);
+exports.authRouter.post("/forgot-password", authCtrl.forgotPasswordCtrl);

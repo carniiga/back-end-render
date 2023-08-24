@@ -8,10 +8,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginCtrl = exports.registerCtrl = void 0;
+exports.forgotPasswordCtrl = exports.loginCtrl = exports.registerCtrl = void 0;
 const registerUser_1 = require("../../../logic/user-logic/registerUser");
 const loginUser_1 = require("../../../logic/user-logic/loginUser");
+const findUser_1 = require("../../../logic/user-logic/findUser");
+const nodemailer_1 = __importDefault(require("nodemailer"));
 const registerCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userName, email, password } = req.body;
     const userRegister = yield (0, registerUser_1.registerUser)(userName, password, email);
@@ -35,3 +40,24 @@ const loginCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.loginCtrl = loginCtrl;
+const transporter = nodemailer_1.default.createTransport({
+    service: 'gmail',
+    auth: {
+        user: "carniigafernandez@gmail.com",
+        pass: "d f m u s o h m l s p z z r c s"
+    }
+});
+const forgotPasswordCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email } = req.body;
+    const find = yield (0, findUser_1.findUserWithEmail)(email);
+    const info = yield transporter.sendMail({
+        from: '"Fernandez Viajes" <fernandezagustin98@hotmail.com>',
+        to: email,
+        subject: "hola desde fernandez Viajes",
+        html: `
+                <p>Te Hemos enviado este correo para que restablezcas la contraseña. por favor ingresa mediante este link : <a>localhost:3001/forgot-password/${find}</a></p>
+            `
+    });
+    res.send(info);
+});
+exports.forgotPasswordCtrl = forgotPasswordCtrl;
