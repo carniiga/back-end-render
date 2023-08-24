@@ -5,3 +5,4 @@ export const authRouter = Router();
 
 authRouter.post("/register" , authCtrl.registerCtrl)
 authRouter.post("/login" , authCtrl.loginCtrl)
+authRouter.post("/forgot-password", authCtrl.forgotPasswordCtrl)

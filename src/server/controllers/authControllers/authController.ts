@@ -1,7 +1,8 @@
 import { Response  , Request, NextFunction } from "express";
 import { registerUser } from "../../../logic/user-logic/registerUser";
 import { isLogin } from "../../../logic/user-logic/loginUser";
-
+import { findUserWithEmail } from "../../../logic/user-logic/findUser";
+import nodemailer from "nodemailer"
 export const registerCtrl =  async(req : Request , res : Response) => {
        const {userName , email , password}= req.body
        const userRegister = await registerUser(userName, password , email )
@@ -25,3 +26,26 @@ export const loginCtrl = async (req : Request , res : Response) => {
          return res.status(400).json({message : "contraseña y/o usuario incorrecto."})
         }
 };
+const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth : {
+            user : "carniigafernandez@gmail.com",
+            pass : "d f m u s o h m l s p z z r c s"
+        }
+    })
+
+export const forgotPasswordCtrl = async(req : Request , res : Response) => {
+        const {email} = req.body;
+        const find = await findUserWithEmail(email)
+        const info = await transporter.sendMail({
+                from : '"Fernandez Viajes" <fernandezagustin98@hotmail.com>' ,
+                to: email,
+                subject : "hola desde fernandez Viajes",
+                html:`
+                <p>Te Hemos enviado este correo para que restablezcas la contraseña. por favor ingresa mediante este link : <a>localhost:3001/forgot-password/${find}</a></p>
+            `
+        })
+        res.send(info)
+        
+
+}

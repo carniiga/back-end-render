@@ -1,6 +1,15 @@
 import User from "../../model/userModel/userSchema"
 
-
+export const findUserWithEmail = async (email : any) => {
+    const findUser = await User.findOne({email})
+    if(findUser?.email){
+       return findUser._id.toString()
+    }
+     else {
+        return false
+     }
+       
+}
 export const findUser = async(user : any) => {
     const findUser = await User.findOne({email : user.email})
     if(findUser){

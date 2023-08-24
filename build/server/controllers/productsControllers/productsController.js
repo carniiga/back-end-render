@@ -48,6 +48,9 @@ exports.updateProductCtrl = updateProductCtrl;
 const deleteProdCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const productToDelete = yield (0, deleteProd_1.deleteProd)(id);
-    res.status(200).send(productToDelete).json();
+    if (productToDelete) {
+        res.status(200).send(productToDelete).json();
+    }
+    res.status(400).json("error");
 });
 exports.deleteProdCtrl = deleteProdCtrl;
