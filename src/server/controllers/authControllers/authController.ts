@@ -3,6 +3,7 @@ import { registerUser } from "../../../logic/user-logic/registerUser";
 import { isLogin } from "../../../logic/user-logic/loginUser";
 import { findUserWithEmail } from "../../../logic/user-logic/findUser";
 import nodemailer from "nodemailer"
+import { restorePass } from "../../../logic/user-logic/forgotPassword";
 export const registerCtrl =  async(req : Request , res : Response) => {
        const {userName , email , password}= req.body
        const userRegister = await registerUser(userName, password , email )
@@ -40,12 +41,17 @@ export const forgotPasswordCtrl = async(req : Request , res : Response) => {
         const info = await transporter.sendMail({
                 from : '"Fernandez Viajes" <fernandezagustin98@hotmail.com>' ,
                 to: email,
-                subject : "hola desde fernandez Viajes",
+                subject : "Fernandez Viajes",
                 html:`
                 <p>Te Hemos enviado este correo para que restablezcas la contraseña. por favor ingresa mediante este link : <a>localhost:3000/restore-password/${find}</a></p>
             `
         })
         res.send(info)
-        
+}
 
+export const restorePasswordCtrl = async (req : Request , res : Response) => {
+    const {userId} = req.params
+    const {password} = req.body
+    const restore = await restorePass(password , userId)
+    
 }

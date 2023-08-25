@@ -1,4 +1,6 @@
 import nodemailer from "nodemailer";
+import User  from "../../model/userModel/userSchema"
+import { passwordcrypted } from "./userHash";
 
 
 export const transporterFunction = async() => {
@@ -11,5 +13,11 @@ export const transporterFunction = async() => {
             pass : "Agustinredbull1234"
         }
     })
+}
+
+export const restorePass = async (password : string , userId : string) => {
+    const passwordHashed = await passwordcrypted(password)
+    const findUserAndUpdate = await User.findByIdAndUpdate(userId, {password : passwordHashed})
+
 }
  
