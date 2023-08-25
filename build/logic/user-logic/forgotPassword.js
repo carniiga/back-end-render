@@ -12,8 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.transporterFunction = void 0;
+exports.restorePass = exports.transporterFunction = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
+const userSchema_1 = __importDefault(require("../../model/userModel/userSchema"));
+const userHash_1 = require("./userHash");
 const transporterFunction = () => __awaiter(void 0, void 0, void 0, function* () {
     const transporter = nodemailer_1.default.createTransport({
         host: "localhost",
@@ -26,3 +28,8 @@ const transporterFunction = () => __awaiter(void 0, void 0, void 0, function* ()
     });
 });
 exports.transporterFunction = transporterFunction;
+const restorePass = (password, userId) => __awaiter(void 0, void 0, void 0, function* () {
+    const passwordHashed = yield (0, userHash_1.passwordcrypted)(password);
+    const findUserAndUpdate = yield userSchema_1.default.findByIdAndUpdate(userId, { password: passwordHashed });
+});
+exports.restorePass = restorePass;

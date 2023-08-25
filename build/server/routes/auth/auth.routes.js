@@ -30,3 +30,4 @@ exports.authRouter = (0, express_1.Router)();
 exports.authRouter.post("/register", authCtrl.registerCtrl);
 exports.authRouter.post("/login", authCtrl.loginCtrl);
 exports.authRouter.post("/forgot-password", authCtrl.forgotPasswordCtrl);
+exports.authRouter.post("/restore-password/:userId", authCtrl.restorePasswordCtrl);

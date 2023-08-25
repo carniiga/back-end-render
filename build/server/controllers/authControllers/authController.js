@@ -12,11 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.forgotPasswordCtrl = exports.loginCtrl = exports.registerCtrl = void 0;
+exports.restorePasswordCtrl = exports.forgotPasswordCtrl = exports.loginCtrl = exports.registerCtrl = void 0;
 const registerUser_1 = require("../../../logic/user-logic/registerUser");
 const loginUser_1 = require("../../../logic/user-logic/loginUser");
 const findUser_1 = require("../../../logic/user-logic/findUser");
 const nodemailer_1 = __importDefault(require("nodemailer"));
+const forgotPassword_1 = require("../../../logic/user-logic/forgotPassword");
 const registerCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userName, email, password } = req.body;
     const userRegister = yield (0, registerUser_1.registerUser)(userName, password, email);
@@ -53,7 +54,7 @@ const forgotPasswordCtrl = (req, res) => __awaiter(void 0, void 0, void 0, funct
     const info = yield transporter.sendMail({
         from: '"Fernandez Viajes" <fernandezagustin98@hotmail.com>',
         to: email,
-        subject: "hola desde fernandez Viajes",
+        subject: "Fernandez Viajes",
         html: `
                 <p>Te Hemos enviado este correo para que restablezcas la contraseña. por favor ingresa mediante este link : <a>localhost:3000/restore-password/${find}</a></p>
             `
@@ -61,3 +62,9 @@ const forgotPasswordCtrl = (req, res) => __awaiter(void 0, void 0, void 0, funct
     res.send(info);
 });
 exports.forgotPasswordCtrl = forgotPasswordCtrl;
+const restorePasswordCtrl = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { userId } = req.params;
+    const { password } = req.body;
+    const restore = yield (0, forgotPassword_1.restorePass)(password, userId);
+});
+exports.restorePasswordCtrl = restorePasswordCtrl;
