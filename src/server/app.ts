@@ -17,7 +17,7 @@ app.use(
     }),
   );
 app.use(cors({
-    origin : "http://localhost:3000",
+    origin : "https://fernandez-viajes.vercel.app",
 }))
     
 app.use(express.json())

@@ -5,7 +5,8 @@ import {  generateToken } from "./userToken"
 // import { userIsAutorized } from "./findUser"
 
 
-export const isLogin = async(email: String , password:String) => {
+export const isLogin = async(email: String , password:String) => {   
+    console.log(password.length)
     const findUser = await User.findOne({email})
     const verifyPass = await bcrypt.compare(`${password}`, `${findUser?.password}`)
     if(verifyPass){

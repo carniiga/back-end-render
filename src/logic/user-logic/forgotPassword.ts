@@ -16,6 +16,7 @@ export const transporterFunction = async() => {
 }
 
 export const restorePass = async (password : string , userId : string) => {
+    console.log(password.length)
     const passwordHashed = await passwordcrypted(password)
     const findUserAndUpdate = await User.findByIdAndUpdate(userId, {password : passwordHashed})
 
