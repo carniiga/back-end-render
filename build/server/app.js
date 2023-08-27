@@ -16,7 +16,7 @@ exports.app.use(body_parser_1.default.urlencoded({
     parameterLimit: 50000,
 }));
 exports.app.use((0, cors_1.default)({
-    origin: "https://fernandez-viajes.vercel.app",
+    origin: "*",
 }));
 exports.app.use(express_1.default.json());
 exports.app.use(express_1.default.json({ limit: '100mb' }));

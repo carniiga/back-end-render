@@ -43,7 +43,7 @@ export const forgotPasswordCtrl = async(req : Request , res : Response) => {
                 to: email,
                 subject : "Fernandez Viajes",
                 html:`
-                <p>Te Hemos enviado este correo para que restablezcas la contraseña. por favor ingresa mediante este link : <a>localhost:3000/restore-password/${find}</a></p>
+                <p>Te Hemos enviado este correo para que restablezcas la contraseña. por favor ingresa mediante este link : <a>https://fernandez-viajes.vercel.app/restore-password/${find}</a></p>
             `
         })
         res.send(info)
