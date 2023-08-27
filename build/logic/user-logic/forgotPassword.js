@@ -29,6 +29,7 @@ const transporterFunction = () => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.transporterFunction = transporterFunction;
 const restorePass = (password, userId) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(password.length);
     const passwordHashed = yield (0, userHash_1.passwordcrypted)(password);
     const findUserAndUpdate = yield userSchema_1.default.findByIdAndUpdate(userId, { password: passwordHashed });
 });

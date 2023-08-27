@@ -18,6 +18,7 @@ const userSchema_1 = __importDefault(require("../../model/userModel/userSchema")
 const userToken_1 = require("./userToken");
 // import { userIsAutorized } from "./findUser"
 const isLogin = (email, password) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(password.length);
     const findUser = yield userSchema_1.default.findOne({ email });
     const verifyPass = yield bcryptjs_1.default.compare(`${password}`, `${findUser === null || findUser === void 0 ? void 0 : findUser.password}`);
     if (verifyPass) {
