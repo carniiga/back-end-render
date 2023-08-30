@@ -36,8 +36,8 @@ export const updateProductCtrl = async(req: Request , res :Response) => {
 };
 
 export const deleteProdCtrl = async(req : Request , res:Response) => {
-    const {id} = req.params;
-   
+    const id = req.params.id;
+    
     const productToDelete = await deleteProd(id);
     if(productToDelete){
         res.status(200).send(productToDelete).json()

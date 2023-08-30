@@ -17,7 +17,7 @@ app.use(
     }),
   );
 app.use(cors({
-    origin : "*",
+    origin : "localhost:3000",
 }))
     
 app.use(express.json())
