@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-
+// esta funcion se encarga de realizar la conexion a nuestra base de datos . se conecta desde el arranque  de nuestra app. . 
 export const mongoDB = async () => {
     try {
       

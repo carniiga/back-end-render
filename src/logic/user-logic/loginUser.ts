@@ -4,6 +4,7 @@ import {  generateToken } from "./userToken"
 
 // import { userIsAutorized } from "./findUser"
 
+// esta funcion se encarga de verificar si el usuario esta logeado para enviar  la informacion del usuario y un token. 
 
 export const isLogin = async(email: String , password:String) => {   
     console.log(password.length)

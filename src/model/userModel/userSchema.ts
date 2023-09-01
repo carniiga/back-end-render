@@ -1,5 +1,5 @@
 import { Schema , model } from "mongoose";
-
+//este es el esquema de nuestro usuario. 
 const  userSchema = new Schema({
     userName : {
         type : String,

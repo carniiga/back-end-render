@@ -1,4 +1,5 @@
 import Product  from "../../model/productModel/productSchema"
+//esta funcion se encarga de actualizar el producto en la base de datos.
 
 export const updateProduct = async(product : any ,id : any): Promise<any> => {
     const id2 = id.trim("")

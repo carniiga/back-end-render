@@ -15,6 +15,7 @@ export const transporterFunction = async() => {
     })
 }
 
+//esta funcion se encarga  de modificar la contraseña y encriptarla en la base de datos.
 export const restorePass = async (password : string , userId : string) => {
     console.log(password.length)
     const passwordHashed = await passwordcrypted(password)

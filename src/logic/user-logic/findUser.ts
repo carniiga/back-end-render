@@ -1,5 +1,7 @@
 import User from "../../model/userModel/userSchema"
 
+
+//esta funcion se encarga de buscar al usuario por email 
 export const findUserWithEmail = async (email : any) => {
     const findUser = await User.findOne({email})
     if(findUser?.email){
@@ -10,6 +12,7 @@ export const findUserWithEmail = async (email : any) => {
      }
        
 }
+//esta funcion se encarga de buscar al usuario por email 
 export const findUser = async(user : any) => {
     const findUser = await User.findOne({email : user.email})
     if(findUser){
@@ -17,6 +20,8 @@ export const findUser = async(user : any) => {
     }
     return;
 }
+
+//esta funcion se encarga  de buscar al usuario y verificar si el usuario tiene rol de admin para realizar modificaciones sobre los productos.
 export const userIsAutorized = async(user : any)=> {
     try {
     const findUser = await User.findOne({email : user.email})

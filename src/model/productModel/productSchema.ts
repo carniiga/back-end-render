@@ -1,5 +1,7 @@
 import { Schema , model } from "mongoose";
 
+
+//este es el esquema de nuestro producto. 
 export type product = {
         provincia: string;
         description: string;
